@@ -1,11 +1,14 @@
 import random
 from words import word_list
+from hangman_art import logo
+from hangman_art import stages
 want_to_play = "y"
 
 #HangMan GameLoop
 while want_to_play == "y":
-    lifes_left = 5
+    lifes_left = 7
     correct_letters = 0
+    print(logo)
 
     #Pick a random word from list
     chosen_word = random.choice(word_list)
@@ -37,11 +40,13 @@ while want_to_play == "y":
                 print(*blankspace_word, sep='')
         if correct_guess == False:
             lifes_left -= 1
+            print(stages[lifes_left])
             print(f"Wrong guess. Lifes left: {lifes_left}\n")
             print(*blankspace_word, sep='')
         if correct_letters == number_of_chars:
             print(f"You have won!")
             lifes_left = 0
+    print(f"The correct word was {chosen_word}.")
     want_to_play = input("Wanna play again?: y/n\n").lower()
 
 print("Exiting Game..")
