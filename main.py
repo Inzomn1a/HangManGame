@@ -1,6 +1,6 @@
 import random
+from words import word_list
 want_to_play = "y"
-word_list = ["cat", "flamingo", "shark", "giraffe", "dog"]
 
 #HangMan GameLoop
 while want_to_play == "y":
@@ -26,7 +26,7 @@ while want_to_play == "y":
         char_position = -1
         correct_guess = False
         guess = input("Guess a letter: ").lower()
-        
+
         for char in chosen_word:
             char_position += 1
             if guess == char:
